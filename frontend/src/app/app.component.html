@@ -1,0 +1,38 @@
+<div class="body">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="inputBlock">
+          <label for="">Application Name</label>
+          <input class="inp-box" type="text" [(ngModel)]="data.application">
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="inputBlock">
+          <label for="">User Name</label>
+          <input class="inp-box" type="text" [(ngModel)]="data.username">
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="inputBlock">
+          <label for="">Password</label>
+          <input class="inp-box" type="text" [(ngModel)]="data.password">
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="inputBlock">
+          <label for="">Description</label><input class="inp-box" type="text" [(ngModel)]="data.description">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="submitButton"><span class="submit" (click)="handleSave()">Submit</span></div>
+    </div>
+    <hr>
+    <div class="grid">
+      <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="columnDefs"  [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>

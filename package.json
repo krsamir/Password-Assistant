@@ -1,0 +1,31 @@
+{
+  "name": "password-assistant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krsamir/Password-Assistant.git"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "samir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krsamir/Password-Assistant/issues"
+  },
+  "homepage": "https://github.com/krsamir/Password-Assistant#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}

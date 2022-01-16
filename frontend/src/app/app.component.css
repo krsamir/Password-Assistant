@@ -1,0 +1,42 @@
+.box-body {
+  margin: 30px;
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 50%);
+  border-radius: 6px;
+  height: 90vh;
+  padding: 20px;
+  background-color: #dcf0ef;
+}
+
+.inp-box {
+  width: 100%;
+  border: 2px solid #43b049;
+  border-radius: 5px;
+  padding: 5px;
+  outline: #4cd47c;
+  /* border: 2px solid #4cd47c; */
+}
+
+.inp-box:focus {
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);
+}
+.inputBlock {
+  margin-top: 15px;
+}
+.submitButton {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.submit {
+  padding: 5px 25px;
+  background-color: #43b049;
+  color: #fff;
+  margin: 10px 20px 0px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: #4cd47c;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);
+}
