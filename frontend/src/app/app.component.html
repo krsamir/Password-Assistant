@@ -26,12 +26,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="submitButton"><span class="submit" (click)="handleSave()">Submit</span></div>
+      <div class="submitButton">
+        <span class="submit" (click)="handleSave()">Submit</span></div>
     </div>
     <hr>
     <div class="grid">
+      <div class="searchBar"><input type="text" class="inp-box search" [(ngModel)]="search" (ngModelChange)="handleSearch()" placeholder="Search for anything"> <span class="cancel" (click)="search = ''" >X</span></div>
       <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
-        [columnDefs]="columnDefs"  [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)">
+        [columnDefs]="columnDefs"  [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)" [animateRows]="true" [gridOptions]="gridOptions">
       </ag-grid-angular>
     </div>
   </div>

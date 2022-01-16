@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   public rowData: IData[] = [];
   public defaultColDef: any;
   public api: any;
+  public gridOptions: any;
+  public search: string = '';
   columnDefs: ColDef[] = [
     { field: 'application' },
     { field: 'username' },
@@ -24,18 +26,21 @@ export class AppComponent implements OnInit {
     { field: 'description' },
     { field: 'delete', headerName: 'Delete' },
   ];
-  constructor(private appService: AppService) {}
-  ngOnInit(): void {
-    this.loadData();
-  }
-  onGridReady = (params: any) => {
-    console.log(params.data);
-    this.api = params.api;
+  constructor(private appService: AppService) {
     this.defaultColDef = {
       filter: true,
       sortable: true,
+      resizable: true,
+    };
+    this.gridOptions = {
       pagination: true,
     };
+  }
+  ngOnInit(): void {}
+  onGridReady = (params: any) => {
+    this.api = params.api;
+    this.api.sizeColumnsToFit();
+    this.loadData();
   };
 
   loadData(): void {
@@ -63,5 +68,9 @@ export class AppComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  handleSearch(): void {
+    this.api.setQuickFilter(this.search);
   }
 }

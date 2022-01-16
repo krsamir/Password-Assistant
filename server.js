@@ -11,7 +11,16 @@ const PORT = 5000;
 const app = express();
 app.use(cors("*"));
 app.use(express.json());
-app.post("/add", (req, res) => {
+app.use((req, res, next) => {
+  const { url, method } = req;
+  if (url.match("/api")) {
+    console.log(
+      `[ METHOD: ${method}  ROUTE: ${url} at ${new Date().toLocaleString()} ]`
+    );
+  }
+  next();
+});
+app.post("/api/add", (req, res) => {
   const data = req.body;
   // Encrypt
   try {
@@ -26,7 +35,6 @@ app.post("/add", (req, res) => {
             error: err,
           });
         } else {
-          console.log(result);
           res.send({ status: 1, message: "Data created Successfully!!" });
         }
       }
@@ -40,7 +48,7 @@ app.post("/add", (req, res) => {
   }
 });
 
-app.get("/getData", (req, res) => {
+app.get("/api/getData", (req, res) => {
   try {
     sql.query(`select * from password_table;`, (err, result) => {
       if (err) {
@@ -70,5 +78,6 @@ app.get("/getData", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+  console.log(`[http://localhost:${PORT}]`);
+  console.log([{ status: `Server started at ${new Date().toLocaleString()}` }]);
 });
