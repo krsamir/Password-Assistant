@@ -76,6 +76,10 @@ app.get("/api/getData", (req, res) => {
     });
   }
 });
+app.use(express.static(path.join(__dirname, "./frontend/dist/frontend")));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./frontend/dist/frontend", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`[http://localhost:${PORT}]`);
